@@ -13,31 +13,64 @@ let unicodes = [
 function App() {
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [copied, setCopied] = useState(false);
   return (
-    <div className="App flex flex-col items-baseline space-y-6 p-20 font-mono">
-      <span className="">search for special character by basic character.</span>
-      <span className="">This is a test deployment, try entering a vowel.</span>
-      <input
-        className="bg-gray-200 rounded-sm p-2 shadow-sm"
-        type="text"
-        placeholder="search..."
-        onChange={(event) => { setSearchTerm(event.target.value); }} />
+    <div className="flex justify-between">
 
-      <div className="grid gap-4 grid-cols-3">{unicodes.filter((val) => {
-        if (searchTerm === "") {
-          return ""
-        }
-        else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-          return val
-        }
-      }).map((val, key) => {
-        return val.unicode.map((val, key) => {
-          return <div className=""><button className="flex flex-col space-y-4 items-center w-36 py-6 bg-gray-200 shadow-sm rounded-md focus:bg-green-200 focus:outline-none focus:ring-2 focus:ring-green-600" onClick={(event) => { navigator.clipboard.writeText(val) }}><p>{val}</p><span className="text-xs text-gray-700">Copy to clipboard</span></button></div>
-        })
-      })}
+
+      <div className="flex-none flex flex-col items-baseline space-y-6 p-20 h-screen font-mono text-2xl text-gray-100 bg-gray-900">
+        <span className="font-poppins text-blue-300">navs-unicodes</span>
+        <span className="">search for special character by basic character.</span>
+        <span className="">This is a test deployment, <span className="font-bold">try entering a vowel</span></span>
+
+        <input
+          className="bg-gray-800 rounded-sm py-2 pl-6 shadow-sm w-42"
+          type="text"
+          placeholder="search..."
+          onChange={(event) => { setSearchTerm(event.target.value); }} />
+
+        <div className="grid gap-4 grid-cols-3">{unicodes.filter((val) => {
+          if (searchTerm === "") {
+            return ""
+          }
+          else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return val
+          }
+        }).map((val, key) => {
+          return val.unicode.map((val, key) => {
+            return (
+              <div className="">
+                <button
+                  className="flex flex-col space-y-4 items-center w-36 p-4 bg-gray-800 shadow-sm rounded-md focus:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900"
+                  onClick={(event) => {
+                    navigator.clipboard.writeText(val);
+                  }}>
+                  <p className="text-2xl">{val}</p>
+                  <p className="text-xs text-gray-100" onClick={(event => {
+                    event.target.textContent = "Copied!";
+                  })}>{"Click to copy"}
+                  </p>
+                </button>
+              </div>
+            )
+          })
+        })}
+        </div>
+      </div >
+      <div className="flex flex-col items-baseline space-y-6 py-20 px-8 h-screen w-full font-mono text-gray-100 bg-blue-900">
+        <span>Tool Purpose: Quick-lookup of unicode characters (hard to find) by inputting keyboard characters (simple, present on keyboard).</span>
+        <span>Running into some issues with manipulating React states inside of map() loop.</span>
+        <div className="flex flex-col space-y-6">
+          <span> Any React devs wanna help me smooth this thing out? hit my socials:</span>
+          <ul className="flex flex-col space-y-4">
+            <li><a href="https://www.linkedin.com/in/nav-verma/">LinkedIn</a></li>
+            <li><a href="https://twitter.com/nn_aavv">Twitter</a></li>
+            <li><a href="https://github.com/ArcticJunkie/navs-unicodes">Project Repository</a></li>
+          </ul>
+        </div>
       </div>
-
     </div>
+
   );
 }
 
