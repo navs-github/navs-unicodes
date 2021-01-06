@@ -71,7 +71,6 @@ function App() {
             <li><a className="hover:text-white" href="https://github.com/ArcticJunkie/navs-unicodes">Project Repository</a></li>
           </ul>
         </div>
-        <span className="">abc</span>
       </div>
     </div>
 
