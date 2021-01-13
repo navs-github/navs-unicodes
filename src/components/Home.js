@@ -30,12 +30,13 @@ function Home() {
                 <span className="">This is a test deployment, <span className="font-bold">try entering a vowel</span></span>
 
                 <input
-                    className="bg-gray-800 rounded-sm py-2 pl-6 shadow-sm w-42"
+                    className="bg-gray-800 rounded-sm py-2 pl-6 shadow-sm w-42
+                    focus:outline-none focus:ring-2 focus:ring-green-700"
                     type="text"
                     placeholder="search..."
                     onChange={(event) => { setSearchTerm(event.target.value); }} />
 
-                <div className="grid sm:gap-4 sm:grid-cols-3 gap-2 grid-cols-2">{unicodes.filter((val) => {
+                <div className="grid sm:gap-6 sm:grid-cols-3 gap-4 grid-cols-2">{unicodes.filter((val) => {
                     if (searchTerm === "") {
                         return ""
                     }
