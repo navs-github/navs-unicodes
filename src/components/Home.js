@@ -6,7 +6,8 @@ let unicodes = [
     { name: 'I', unicode: ['î', 'ï', 'í', 'ī', 'į', 'ì'] },
     { name: 'O', unicode: ['ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ'] },
     { name: 'U', unicode: ['û', 'ü', 'ù', 'ú', 'ū'] },
-    { name: 'TM', unicode: ['™'] },
+    { name: 'trademark', unicode: ['™'] },
+    { name: 'tm', unicode: ['™'] },
     { name: 'em dash', unicode: ['—'] },
     { name: 'copyright', unicode: ['©'] },
 
@@ -28,15 +29,18 @@ function Home() {
                 </a>
                 <span className="">search for special character by basic character.</span>
                 <span className="">This is a test deployment, <span className="font-bold">try entering a vowel</span></span>
+                {/* input and copied! alert */}
+                <div className="flex flex-col sm:flex-row space-y-4 sm:space-x-12 items-baseline sm:items-center">
+                    <input
+                        className="bg-gray-800 rounded-sm py-2 pl-6 shadow-sm w-42
+                        focus:outline-none focus:ring-2 focus:ring-green-700"
+                        type="text"
+                        placeholder="search..."
+                        onChange={(event) => { setSearchTerm(event.target.value); }} />
+                    <span className="text-xl"><span className="text-2xl">{copiedUnicode}</span> {copied ? "copied to clipboard :)" : ""} </span>
+                </div>
 
-                <input
-                    className="bg-gray-800 rounded-sm py-2 pl-6 shadow-sm w-42
-                    focus:outline-none focus:ring-2 focus:ring-green-700"
-                    type="text"
-                    placeholder="search..."
-                    onChange={(event) => { setSearchTerm(event.target.value); }} />
-
-                <div className="grid sm:gap-6 sm:grid-cols-3 gap-4 grid-cols-2">{unicodes.filter((val) => {
+                <div className="grid gap-6 grid-cols-2  sm:gap-8 sm:grid-cols-3 ">{unicodes.filter((val) => {
                     if (searchTerm === "") {
                         return ""
                     }
@@ -64,7 +68,6 @@ function Home() {
                     })
                 })}
                 </div>
-                <span className="text-xl"><span className="text-2xl">{copiedUnicode}</span> {copied ? "copied to clipboard (=" : ""} </span>
             </div >
         </div>
 
