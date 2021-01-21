@@ -28,7 +28,7 @@ function Home() {
                     <span className="font-poppins text-blue-300">nāvs-unicodes</span>
                 </a>
                 <span className="">search for special character by basic character.</span>
-                <span className="">This is a test deployment, <span className="font-bold">try entering a vowel</span></span>
+                <span className="">This is a limited deployment, <span className="font-bold">try entering a vowel</span></span>
                 {/* input and copied! alert */}
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-x-12 items-baseline sm:items-center">
                     <input
