@@ -24,9 +24,22 @@ function Home() {
         <div className="h-screen bg-gray-800">
             {/* left-content */}
             <div className="flex flex-col items-baseline space-y-6 p-8 sm:p-20 font-mono text-xl sm:text-2xl text-gray-100 bg-gray-900">
-                <a href="/about" className="">
-                    <span className="font-poppins text-blue-300">nāvs-unicodes</span>
-                </a>
+                <div className="w-full flex flex-row justify-between items-baseline">
+                    <a href="/about" className="">
+                        <span className="font-poppins text-blue-300">nāvs-unicõdes</span>
+                    </a>
+                    <div className="flex flex-row space-x-6 sm:space-x-12">
+                        <a href="https://navs-portfolio.vercel.app">
+                            <span className="font-poppins text-blue-700 hover:text-blue-600">creator</span>
+                        </a>
+
+                        <a href="/about">
+                            <span className="font-poppins text-blue-700 hover:text-blue-600">about</span>
+                        </a>
+
+
+                    </div>
+                </div>
                 <span className="">search for special character by basic character.</span>
                 <span className="">This is a limited deployment, <span className="font-bold">try entering a vowel</span></span>
                 {/* input and copied! alert */}

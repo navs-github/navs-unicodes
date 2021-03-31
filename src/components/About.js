@@ -2,10 +2,10 @@
 function About() {
     return (
         <div className="">
-            <div className="flex flex-col items-baseline space-y-6 py-20 px-8 h-screen w-full font-poppins text-blue-200 bg-blue-900">
+            <div className="flex flex-col items-baseline space-y-6 py-20 px-8 h-screen w-full font-poppins text-xl text-pink-100 bg-pink-900">
                 <span>Tool purpose: Quick-lookup of unicode characters (hard to find) by inputting keyboard characters (simple, present on keyboard).</span>
                 <span>Running into some issues with manipulating React states inside dynamically generated HTML elements inside a map() iteration.</span>
-                <span>Currently, the unicode data is hard-coded inside the React front-end, I'll have to eventually hook into a database.</span>
+                <span>Currently, the unicode data is hard-coded inside the React front-end, eventually hooks into a custom unicode database.</span>
                 <div className="flex flex-col space-y-8">
                     <span> Any react devs out there wanna help me smooth this thing out? hit my socials:</span>
                     <ul className="flex flex-col space-y-4 underline font-mono">
