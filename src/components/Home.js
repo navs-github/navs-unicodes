@@ -28,7 +28,7 @@ function Home() {
                     <a href="/about" className="">
                         <span className="font-poppins text-blue-300">nāvs-unicõdes</span>
                     </a>
-                    <div className="flex flex-row space-x-6 sm:space-x-12 text-base sm:text-lg">
+                    <div className="flex flex-row space-x-6 sm:space-x-12 text-base sm:text-lg md:text-2xl">
                         <a href="https://navs-portfolio.vercel.app">
                             <span className="font-poppins text-blue-700 hover:text-blue-600">creator</span>
                         </a>
