@@ -10,6 +10,10 @@ let unicodes = [
     { name: 'tm', unicode: ['™'] },
     { name: 'em dash', unicode: ['—'] },
     { name: 'copyright', unicode: ['©'] },
+    { name: 'square', unicode: ['²'] },
+    { name: 'cube', unicode: ['³'] },
+    { name: '^', unicode: ['²', '³'] },
+
 
 ]
 
@@ -21,7 +25,7 @@ function Home() {
     const [copied, setCopied] = useState(false);
     const [copiedUnicode, setCopiedUnicode] = useState('');
     return (
-        <div className="h-screen bg-gray-800">
+        <div className="h-screen bg-gray-900">
             {/* left-content */}
             <div className="flex flex-col items-baseline space-y-6 p-8 sm:p-20 font-mono text-lg sm:text-xl md:text-2xl text-gray-100 bg-gray-900">
                 <div className="w-full flex flex-row justify-between items-baseline">
