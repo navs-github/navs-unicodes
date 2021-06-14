@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react'
+import Nav from './Nav'
 
 let unicodes = [
     { name: 'A', unicode: ['à', 'â', '@', 'á', 'æ', 'å'] },
@@ -19,43 +20,34 @@ let unicodes = [
 
 
 
-function Home() {
+function Landing() {
 
+    const inputRef = useRef();
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [])
     const [searchTerm, setSearchTerm] = useState('');
     const [copied, setCopied] = useState(false);
     const [copiedUnicode, setCopiedUnicode] = useState('');
     return (
         <div className="h-screen bg-gray-900">
-            {/* left-content */}
-            <div className="flex flex-col items-baseline space-y-6 p-8 sm:p-20 font-mono text-lg sm:text-xl md:text-2xl text-gray-100 bg-gray-900">
-                <div className="w-full flex flex-row justify-between items-baseline">
-                    <a href="/about" className="">
-                        <span className="font-poppins text-blue-300">nāvs-unicõdes</span>
-                    </a>
-                    <div className="flex flex-row space-x-6 sm:space-x-12 text-base sm:text-lg md:text-2xl">
-                        <a href="https://navs-portfolio.vercel.app">
-                            <span className="font-poppins text-blue-700 hover:text-blue-600">creator</span>
-                        </a>
-
-                        <a href="/about">
-                            <span className="font-poppins text-blue-700 hover:text-blue-600">about</span>
-                        </a>
-                    </div>
-                </div>
-                <span className="">search for special character by basic character.</span>
-                <span className="">This is a limited deployment, <span className="font-bold">try entering a vowel</span></span>
+            <div className="flex flex-col items-baseline p-20 sm:p-20 font-mono text-lg sm:text-xl md:text-2xl text-gray-100 bg-gray-900">
+                <Nav />
+                <span className="mt-20">search for special character by basic character.</span>
+                <span className="mt-6"><span className="font-bold">try naming a special character.</span></span>
                 {/* input and copied! alert */}
-                <div className="flex flex-col sm:flex-row space-y-4 sm:space-x-12 items-baseline sm:items-center">
+                <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-x-12 items-baseline sm:items-center">
                     <input
                         className="bg-gray-800 rounded-sm py-2 pl-6 shadow-sm w-42
                         focus:outline-none focus:ring-2 focus:ring-green-700"
+                        ref={inputRef}
                         type="text"
                         placeholder="search..."
                         onChange={(event) => { setSearchTerm(event.target.value); }} />
-                    <span className="text-xl"><span className="text-2xl">{copiedUnicode}</span> {copied ? "copied to clipboard :)" : ""} </span>
+                    <span className="text-xl"><span className="text-2xl">{copiedUnicode}</span> {copied ? "copied to clipboard." : ""} </span>
                 </div>
 
-                <div className="grid gap-6 grid-cols-2  sm:gap-8 sm:grid-cols-3 ">{unicodes.filter((val) => {
+                <div className="mt-8 grid gap-6 grid-cols-2 md:gap-8 md:grid-cols-5">{unicodes.filter((val) => {
                     if (searchTerm === "") {
                         return ""
                     }
@@ -67,9 +59,7 @@ function Home() {
                         return (
                             <div className="">
                                 <button
-                                    className="
-    flex flex-col space-y-4 items-center w-36 p-4 bg-gray-800 shadow-sm rounded-md focus:bg-green-800
-    hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-900"
+                                    className="flex flex-col space-y-4 items-center w-36 p-6 bg-gray-800 shadow-sm rounded-md focus:bg-green-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-900"
                                     onClick={(event) => {
                                         navigator.clipboard.writeText(val);
                                         setCopiedUnicode(val);
@@ -89,4 +79,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Landing;

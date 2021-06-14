@@ -16,15 +16,11 @@
         "windups": "^1.1.2"
     },
     "scripts": {
-        "start": "npm-run-all start:tailwind -l -p start:p:* ",
-        "start:tailwind": "postcss ./src/assets/css/tailwind.src.css -o ./src/assets/css/tailwind.css",
-        "start:p:watch-tailwind": "onchange 'tailwind.config.js' 'src/**/*.css' -e '.src/assets/css/tailwind.css' -- npm run start:tailwind ",
-        "start:p:react": "react-scripts start",
-        "build": "run-s build:** -l",
-        "build:a:tailwind": "NODE_ENV=production npm run start:tailwind",
-        "build:b:react": "react-scripts build",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "watch:css": "postcss -w src/styles/tailwind.css -o src/styles/output.css"
     },
     "eslintConfig": {
         "extends": [
@@ -45,12 +41,12 @@
         ]
     },
     "devDependencies": {
-        "autoprefixer": "^10.1.0",
+        "autoprefixer": "^10.2.6",
         "npm-run-all": "^4.1.5",
         "onchange": "^7.1.0",
-        "postcss": "^8.2.1",
+        "postcss": "^8.3.2",
         "postcss-cli": "^8.3.1",
         "postcss-nested": "^5.0.3",
-        "tailwindcss": "^2.0.2"
+        "tailwindcss": "^2.1.4"
     }
 }
