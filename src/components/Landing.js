@@ -76,7 +76,7 @@ function Landing() {
         <div className="h-screen bg-gray-900">
             <div className="flex flex-col items-baseline p-20 sm:p-20 font-mono text-lg sm:text-xl md:text-2xl text-gray-100 bg-gray-900">
                 <Nav />
-                <span className="mt-20">search for special character by basic character.</span>
+                <span className="mt-20">search for special character.</span>
                 <span className="mt-6"><span className="font-bold">try naming a special character.</span></span>
                 {/* input and copied! alert */}
                 <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-x-12 items-baseline sm:items-center">
